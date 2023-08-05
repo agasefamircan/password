@@ -44,12 +44,12 @@
           (click)="btnclick()"
           class="button is-link is-fullwidth"
         >
-          Create
+          Create 
         </button>
 
         <div class="box" *ngIf="password">
           <label>Your Password</label>
-          <input class="input" [value]="password" />
+          <input class="input" readonly="true" [value]="password" />
         </div>
       </div>
     </div>
