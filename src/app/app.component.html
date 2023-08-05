@@ -2,7 +2,7 @@
 
 <div>
   <label> Password Lenght : </label>
-  <input  (change)="modifyLength($any($event.target).value)" type="text" />
+  <input  (change)="modifyLength($any($event.target).value)" type="number" />
 </div>
 <div>
   <label> Use ABC</label>
@@ -23,5 +23,5 @@
 
 <div>
     <label> Your Password :  </label>
-    <input [value]="" />
+    <input [value]="password" />
   </div>
