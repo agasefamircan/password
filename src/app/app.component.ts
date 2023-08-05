@@ -28,9 +28,12 @@ export class AppComponent {
 
     let validChars = '';
 
-    if (!(this.includeLetters || this.includeNumbers || this.includeSymbols)) {
-      alert("Please check at least one box");
-    }
+    // if(!(this.password)){
+    //   alert("Please enter number for password length ")
+    // }
+    // else if (!(this.includeLetters || this.includeNumbers || this.includeSymbols)) {
+    //   alert("Please check at least one box");
+    // }
 
     if (this.includeLetters) {
       validChars += letters;

@@ -1,27 +1,57 @@
-<h2>Password Generator</h2>
+<div class="mainarea">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="box column is-one-third">
+        <h1 class="title has-text-centered">Password Generator</h1>
 
-<div>
-  <label> Password Lenght : </label>
-  <input  (change)="modifyLength($any($event.target).value)" type="number" />
-</div>
-<div>
-  <label> Use ABC</label>
-  <input (change)="modifyLetter()" type="checkbox" />
-</div>
-<div>
-  <label> Use Numbers</label>
-  <input (change)="modifyNumbers()" type="checkbox" />
-</div>
-<div>
-  <label> Use Symbol</label>
-  <input (change)="modifySymbols()" type="checkbox" />
-</div>
+        <div class="field">
+          <label>Password Length</label>
+          <input
+            class="input"
+            (change)="modifyLength($any($event.target).value)"
+          />
+        </div>
+        <div class="field">
+          <div class="control">
+            <label class="checkbox">
+              <input (change)="modifyLetter()" type="checkbox" />
+              Use ABC
+            </label>
+          </div>
+        </div>
+        <div class="field">
+          <div class="control">
+            <label class="checkbox">
+              <input (change)="modifyNumbers()" type="checkbox" />
+              Use Numbers
+            </label>
+          </div>
+        </div>
+        <div class="field">
+          <div class="control">
+            <label class="checkbox">
+              <input (change)="modifySymbols()" type="checkbox" />
+              Use Symbols
+            </label>
+          </div>
+        </div>
 
-<div>
-    <button (click)="btnclick()">Create</button>
-</div>
+        <button
+          [disabled]="
+            !(length && (includeLetters || includeSymbols || includeNumbers))
+          "
+          [disabled]="!length"
+          (click)="btnclick()"
+          class="button is-link is-fullwidth"
+        >
+          Create
+        </button>
 
-<div>
-    <label> Your Password :  </label>
-    <input [value]="password" />
+        <div class="box" *ngIf="password">
+          <label>Your Password</label>
+          <input class="input" [value]="password" />
+        </div>
+      </div>
+    </div>
   </div>
+</div>
