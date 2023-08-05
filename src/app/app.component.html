@@ -41,8 +41,9 @@
             !(length && (includeLetters || includeSymbols || includeNumbers))
           "
           [disabled]="!length"
-          (click)="btnclick()"
+          (click)="btnclick(); resetCopyButton()"
           class="button is-link is-fullwidth"
+           [ngClass]="{'copied-button': copied}"
         >
           Create 
         </button>
@@ -50,7 +51,16 @@
         <div class="box" *ngIf="password">
           <label>Your Password</label>
           <input class="input" readonly="true" [value]="password" />
+          <button
+            [disabled]="!password"
+            (click)="copyToClipboard()"
+            class="button is-primary copy-button"
+            [textContent]="copyButtonText"
+          >
+          {{ copyButtonText }}
+          </button>
         </div>
+        
       </div>
     </div>
   </div>

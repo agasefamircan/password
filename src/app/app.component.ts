@@ -11,7 +11,8 @@ export class AppComponent {
   includeLetters: boolean = false;
   includeNumbers: boolean = false;
   includeSymbols: boolean = false;
-
+  copyButtonText = 'Copy';
+  copied = false;
   modifyLetter() {
     this.includeLetters = !this.includeLetters;
   }
@@ -20,6 +21,24 @@ export class AppComponent {
   }
   modifyNumbers() {
     this.includeNumbers = !this.includeNumbers;
+  }
+  copyToClipboard() {
+    const textarea = document.createElement('textarea');
+    textarea.value = this.password;
+    document.body.appendChild(textarea);
+    textarea.select();
+    document.execCommand('copy');
+    document.body.removeChild(textarea);
+    this.copyButtonText = 'Copied ✅';
+    this.copied=true
+    setTimeout(() => {
+      this.resetCopyButton();
+    }, 2000);
+  }
+  
+  resetCopyButton() {
+    this.copyButtonText = 'Copy';
+    this.copied=false
   }
   btnclick() {
     const numbers = '0123456789';

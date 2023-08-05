@@ -8,3 +8,6 @@
     align-items: center;
     min-height: 600px;
 }
+.copied-button {
+    background-color: red;
+}
